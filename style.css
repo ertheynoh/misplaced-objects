@@ -51,6 +51,11 @@ li[role="doc-endnote"] p {
   font-size: 14px;
 }
 
+h2.notes,
+h2.bibliography {
+  font-size: 24px;
+}
+
 .abstract {
   font-size: 16px;
 }

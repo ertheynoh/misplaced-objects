@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "Inconsolata";
+  src: url('fonts/inconsolata/Inconsolata-VariableFont_wdth,wght.ttf');
+  src: url('fonts/inconsolata/Inconsolata-Regular.ttf');
+}
+
+header {
+  font-family: Inconsolata, monospace;
+}
+
+body {
+  background-color: #fcf1f4;
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 70ch;
+}
+
+h1,
+h2,
+h3, 
+h4 {
+  font-family: Inconsolata, monospace;
+  font-weight: 400;
+}
+
+li,
+p {
+  font-family: Inconsolata, monospace;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+blockquote p {
+  line-height: 1;
+  font-size: 18px;
+  margin-right: -30px;
+}
+
+.post {
+  font-family: Inconsolata, monospace;
+  font-size: 18px;
+}
+
+.note,
+div[role="doc-biblioentry"] p,
+#refs,
+li[role="doc-endnote"],
+li[role="doc-endnote"] p {
+  font-family: Inconsolata, monospace;
+  font-size: 14px;
+}
+
+.abstract {
+  font-size: 16px;
+}
+
+#refs {
+  padding-left: 22px;
+  text-indent: -22px;
+}
+
+a:link {
+  text-decoration: none;
+  color: #008080;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #005959;
+}
+
+hr {
+  border-top: 1px dotted black;
+}

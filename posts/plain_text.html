@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <title>writing in plain text</title>
+  </head>
+  <header>
+    <nav>
+      <a href="../index.html">home</a>
+    </nav>
+  </header>
+  <body>
+    <h1>writing in plain text</h1>
+      <p>I think it's worth it to write in <a
+      href="https://programminghistorian.org/en/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown"
+      target="_null">plain text</a> because it keeps your writing medium highly
+      portable and allows you to automate things like formatting and citations.
+      <a href="https://commonmark.org/help/" target="_null">Markdown</a> is nice
+      because it doesn’t require dealing with a whole sophisticated markup
+      language while you're just trying to get ideas down. You can use a simple
+      plain text editor for any writing project without having to tweak
+      formatting or mess around with little menus every time you sit down to
+      write.</p>
+      <p>I just use the text editor vim and the document converter pandoc to do
+      pretty much all of my writing now. In my .vimrc configuration file I have
+      “filetype plugin on” and I have it configured so that my textwidth is set
+      to 80 characters when I write markdown files (<a
+      href="https://vimhelp.org/autocmd.txt.html" target="_null">:h
+      autocmd</a>). This helps keep the text file itself readable even before
+      it's been typeset, or if I want to work on it on a machine where I don't
+      have my vim configurations. I use the ‘gwap’ command to keep the
+      paragraphs nicely formatted and legible, and have a shortcut for it (<a
+      href="https://vimhelp.org/change.txt.html#gq" target="_null">:h
+      gq</a>).</p>
+      <p>I use <a href="https://pandoc.org/MANUAL.html"
+      target="_null">pandoc</a> with Latex and biblatex, so I maintain a bibtex
+      <a href="https://youtu.be/GAVXVkcpbG0" target="_null">database</a>. I
+      don’t have zotero. I just use vim to edit the file semi-automatically and
+      <a href="https://man.openbsd.org/grep" target="_null">grep</a> when I want
+      to recall a “cite key.” I also have a “snippets” subdirectory in my .vim
+      folder, which has little templates like this one:</p>
+	<pre>
+	  <code>@book{,
+	    title = {},
+	    author = {},
+	    translator = {},
+	    date = {},
+	    publisher = {},
+	    location = {}
+	  }</code>
+	</pre>
+      <p>I can print this template into my .bib database whenever I want to add
+      a new entry with a quick keyboard shortcut:</p>
+	<pre><code>nnoremap &lt;leader&gt;bk :-1read
+	$HOME/.vim/snippets/book&lt;CR&gt;f,i</code></pre>
+      <p>I borrowed the idea from <a href="https://youtu.be/XA2WjJbmmoM?t=2300"
+      target="_null">here</a>.</p>
+      <p>Pandoc’s citation preprocessor defaults to Chicago author-date, but you
+      can tell it to use any citation style you need using a CSL file (you can
+      find some <a href="https://editor.citationstyles.org/about/"
+      target="_null">here</a>). I handle all my formatting with a <a
+      href="https://pandoc.org/MANUAL.html#extension-yaml_metadata_block"
+      target="_null">“YAML header”</a> at the beginning of the file, which I
+      also have a “snippet” for:</p>
+	<pre>
+	  <code>
+	  ---
+	  geometry: margin=1in
+	  indent: true
+	  fontfamily: times
+	  fontsize: 12pt
+	  csl: /home/path/to/chicago-note-bibliography.csl
+	  bibliography: /home/path/to/library.bib
+	  header-includes:
+	    - \usepackage{setspace}
+	    - \doublespacing
+	    - \usepackage{etoolbox}
+          - \patchcmd{\quote}{\rightmargin}{\leftmargin 1.5e			\rightmargin}{}{}
+	    - \AtBeginEnvironment{quote}{\singlespacing}
+	  ---
+	  </code>
+	</pre>
+      <p>Calling the LaTeX “setspace” and “etoolbox” packages like I do here
+      gives me proper Chicago formatting, with double-spaced body paragraphs and
+      single-spaced half-inch indented block quotes (I got the tip from <a
+      href="https://pandoc-discuss.narkive.com/5sgPR1mh/single-spaced-block-quotes-in-a-double-spaced-latex-pdf"
+      target="_null">here</a>). The nice thing about the "snippet" is that I
+      don't have to memorize all this stuff, or worry about formatting or
+      keeping a bibliography when I'm writing. When I want a formatted document,
+      I can either paste this snippet at the top of the file or keep it in a
+      separate .yaml file. When I call pandoc with the 'C' flag, all the
+      formatting and citations will be taken care of for me:</p>
+	<pre><code>:! pandoc -C % metadata.yaml -t pdf -o this_text.pdf</code></pre>
+      <p>Typing ‘:!’ allows me to invoke pandoc (or any other commandline
+      program or shell command) without leaving vim. In my experience pandoc
+      works most smoothly as a kind of "Latex for dummies," but I've found it
+      pretty serviceable for producing .docx and HTML files as well.</p>
+      <p>I’m trying to keep my files simpler for this chapter, since I don’t
+      have to worry about migrating to a new workflow with a half-finished
+      Microsoft Word document this time around. I’m trying to avoid excessive
+      footnoting. When I cite something it just looks like this:</p>
+	<blockquote>
+	  <p class="markdown-block">In the earlier essay, Freud had already
+	  begun to notice that the problem of melancholia hinged on questions of
+	  identification: &quot;In mourning it is the world which has become
+	  poor and empty,&quot; he observed, &quot;in melancholia it is the ego
+	  itself.&quot;[@SE14, 246]</p>
+	</blockquote>
+      <p>...and since my .csl file has pandoc return my citations as footnotes,
+      anything in the bracket will show up in its respective footnote
+      accompanied by the properly formatted citation. If I really need to write
+      a more extensive commentary and want it out of the way of the ‘source’
+      file’s main body, I can still just use the regular Markdown syntax:
+      [^1].</p>
+      <p>This set up seems to lend itself to keeping things a bit more
+      organized, doesn’t involve as much formatting during the actual writing
+      process, and automates the management of my citational apparatus. Vim did
+      take me some time to get the hang of, but I like it more than the
+      graphical word processors I used before because it has fewer distractions
+      and lots of useful little tricks up its sleeve.</p>
+      <p>I've seen some pretty elaborate setups in other people's guides to
+      using pandoc and markdown together for academic writing. Some of these are
+      very cool, but I didn't want to replace my word processor with ten other
+      complicated graphical applications. I also don't want to spend years
+      perfecting a vim or emacs configuration to essentially reverse engineer
+      Scrivener. I try to keep things in the terminal and to err towards
+      simplicity.</p>
+  </body>
+</html>

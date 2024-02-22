@@ -15,9 +15,9 @@
     <h1>writing in plain text</h1>
       <p>I think it's worth it to write in <a
       href="https://programminghistorian.org/en/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown"
-      target="_null">plain text</a> because it keeps your writing medium highly
+      >plain text</a> because it keeps your writing medium highly
       portable and allows you to automate things like formatting and citations.
-      <a href="https://commonmark.org/help/" target="_null">Markdown</a> is nice
+      <a href="https://commonmark.org/help/">Markdown</a> is nice
       because it doesn’t require dealing with a whole sophisticated markup
       language while you're just trying to get ideas down. You can use a simple
       plain text editor for any writing project without having to tweak
@@ -27,18 +27,18 @@
       pretty much all of my writing now. In my .vimrc configuration file I have
       “filetype plugin on” and I have it configured so that my textwidth is set
       to 80 characters when I write markdown files (<a
-      href="https://vimhelp.org/autocmd.txt.html" target="_null">:h
+      href="https://vimhelp.org/autocmd.txt.html">:h
       autocmd</a>). This helps keep the text file itself readable even before
       it's been typeset, or if I want to work on it on a machine where I don't
       have my vim configurations. I use the ‘gwap’ command to keep the
       paragraphs nicely formatted and legible, and have a shortcut for it (<a
-      href="https://vimhelp.org/change.txt.html#gq" target="_null">:h
+      href="https://vimhelp.org/change.txt.html#gq">:h
       gq</a>).</p>
       <p>I use <a href="https://pandoc.org/MANUAL.html"
-      target="_null">pandoc</a> with Latex and biblatex, so I maintain a bibtex
-      <a href="https://youtu.be/GAVXVkcpbG0" target="_null">database</a>. I
+      >pandoc</a> with Latex and biblatex, so I maintain a bibtex
+      <a href="https://youtu.be/GAVXVkcpbG0">database</a>. I
       don’t have zotero. I just use vim to edit the file semi-automatically and
-      <a href="https://man.openbsd.org/grep" target="_null">grep</a> when I want
+      <a href="https://man.openbsd.org/grep">grep</a> when I want
       to recall a “cite key.” I also have a “snippets” subdirectory in my .vim
       folder, which has little templates like this one:</p>
 	<pre>
@@ -56,13 +56,13 @@
 	<pre><code>nnoremap &lt;leader&gt;bk :-1read
 	$HOME/.vim/snippets/book&lt;CR&gt;f,i</code></pre>
       <p>I borrowed the idea from <a href="https://youtu.be/XA2WjJbmmoM?t=2300"
-      target="_null">here</a>.</p>
+      >here</a>.</p>
       <p>Pandoc’s citation preprocessor defaults to Chicago author-date, but you
       can tell it to use any citation style you need using a CSL file (you can
       find some <a href="https://editor.citationstyles.org/about/"
-      target="_null">here</a>). I handle all my formatting with a <a
+      >here</a>). I handle all my formatting with a <a
       href="https://pandoc.org/MANUAL.html#extension-yaml_metadata_block"
-      target="_null">“YAML header”</a> at the beginning of the file, which I
+      >“YAML header”</a> at the beginning of the file, which I
       also have a “snippet” for:</p>
 	<pre>
 	  <code>
@@ -86,7 +86,7 @@
       gives me proper Chicago formatting, with double-spaced body paragraphs and
       single-spaced half-inch indented block quotes (I got the tip from <a
       href="https://pandoc-discuss.narkive.com/5sgPR1mh/single-spaced-block-quotes-in-a-double-spaced-latex-pdf"
-      target="_null">here</a>). The nice thing about the "snippet" is that I
+      >here</a>). The nice thing about the "snippet" is that I
       don't have to memorize all this stuff, or worry about formatting or
       keeping a bibliography when I'm writing. When I want a formatted document,
       I can either paste this snippet at the top of the file or keep it in a

@@ -31,24 +31,29 @@ p {
   line-height: 1.5;
 }
 
+/* blockquotes */
 blockquote p {
   line-height: 1;
   font-size: 18px;
   margin-right: -30px;
 }
 
+/* centered and reasonably-proportioned images */
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-}
+  width: 50%
+} 
 
+/* for the post links in the index */
 .post {
   font-family: Inconsolata, monospace;
   font-size: 18px;
 }
 
+/* font settings for endnotes and bibliography, messy for now because of
+ * the mixture of my own and pandoc-generated html for these things >_< */
 .note,
 div[role="doc-biblioentry"] p,
 #refs,
@@ -60,20 +65,24 @@ li[role="doc-endnote"] p {
   font-size: 14px;
 }
 
+/* smaller headings for 'cited' and 'notes' headings */
 h2.notes,
 h2.bibliography {
   font-size: 24px;
 }
 
+/* dissertation abstract */
 .abstract {
   font-size: 16px;
 }
 
+/* hanging indents in bibliography */
 #refs {
   padding-left: 22px;
   text-indent: -22px;
 }
 
+/* spaces between bibliography entries */
 div.csl-entry {
   margin-bottom: .25rem;
 }
@@ -82,6 +91,7 @@ div.csl-entry p {
   margin-bottom: -.55rem;
 }
 
+/* link colors */
 a:link {
   text-decoration: none;
   color: #008080;
@@ -90,6 +100,7 @@ a:visited {
   color: #005959;
 }
 
+/* line over footnotes */
 hr {
   border-top: 1px dotted black;
 }

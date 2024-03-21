@@ -6,14 +6,14 @@
     <link>https://misplaced-objects.neocities.org</link>
     <description>jacqueline's blog</description>
     <item>
-	<title>01-05-2024</title>
-	<link>https://misplaced-objects.neocities.org/posts/2024-update</link>
-	<description>page update</description>
-    </item>
-    <item>
-	<title>02-27-2024</title>
+	<title>how to listen</title>
 	<link>https://misplaced-objects.neocities.org/posts/akerman</link>
 	<description>how to listen</description>
     </item>
-</channel>
+    <item>
+	<title>page update</title>
+	<link>https://misplaced-objects.neocities.org/posts/2024-update</link>
+	<description>page update</description>
+    </item>
+    </channel>
 </rss>

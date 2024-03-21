@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+    <title>misplaced objects</title>
+    <link>https://misplaced-objects.neocities.org</title>
+    <description>jacqueline's blog</description>
+    <item>
+	<title>01-05-2024</title>
+	<link>https://misplaced-objects.neocities.org/posts/2024-update</link>
+	<description>page update</description>
+    </item>
+    <item>
+	<title>02-27-2024</title>
+	<link>https://misplaced-objects.neocities.org/posts/akerman</link>
+	<description>how to listen</description>
+    </item>
+</channel>
+</rss>

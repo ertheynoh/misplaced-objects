@@ -43,8 +43,13 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%
+  width: 50%;
 } 
+
+img[name="uccelo"] {
+  margin: 0px 0px;
+  width: 50%;
+}
 
 /* for the post links in the index */
 .post {
